@@ -5,6 +5,10 @@ class PlayerController < ApplicationController
     @relays = relays
   end
 
+  def nowplaying
+    render json: { current_track: stream_data['nowplaying'][0]['name'] }
+  end
+
 private
   def relays
     @relays ||= stream_data['relays'].reject { |r| r['bitrate'] =~ /bad128/ }
