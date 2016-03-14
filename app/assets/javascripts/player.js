@@ -4,7 +4,7 @@ $(document).ready(function() {
       $('#nowplaying').html(data.current_track);
     })
 
-    setInterval(setNowplaying, 5000);
+    setInterval(setNowplaying, 60000);
   }
 
   setNowplaying();
