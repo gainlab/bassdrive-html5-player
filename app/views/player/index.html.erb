@@ -1,5 +1,5 @@
-<h1>Player#index</h1>
-<p>Find me in app/views/player/index.html.erb</p>
+<h1>BASSDRIVE HTML5 Player</h1>
+<p>Experimental build</p>
 
 <div id="bassdrive-player" class="jp-jplayer"></div>
 <div id="jp_container_1" class="jp-audio-stream" role="application" aria-label="media player">
@@ -25,3 +25,8 @@
 		</div>
 	</div>
 </div>
+
+<script>
+  var BASSDRIVE = BASSDRIVE | {};
+  BASSDRIVE.relays = <%= @relays.to_json.html_safe %>;
+</script>

@@ -2,7 +2,7 @@ require 'net/http'
 
 class PlayerController < ApplicationController
   def index
-    @relays = ['relays']
+    @relays = relays
   end
 
 private
