@@ -6,7 +6,7 @@ class PlayerController < ApplicationController
   end
 
   def nowplaying
-    render json: { current_track: stream_data['nowplaying'][0]['name'] }
+    render json: { current_track: stream_data['relays'][0]['title'] }
   end
 
 private

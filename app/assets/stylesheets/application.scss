@@ -47,29 +47,23 @@ $grey: #676767;
   }
 
   &.volume-25 {
-    .button-set-vol-50,
-    .button-set-vol-75,
-    .button-set-vol-100 {
+    #button-set-vol-50,
+    #button-set-vol-75,
+    #button-set-vol-100 {
       background: $grey;
     }
   }
 
   &.volume-50 {
-    .button-set-vol-75,
-    .button-set-vol-100 {
+    #button-set-vol-75,
+    #button-set-vol-100 {
       background: $grey;
     }
   }
 
   &.volume-75 {
-    .button-set-vol-100 {
+    #button-set-vol-100 {
       background: $grey;
     }
   }
 }
-
-.button-set-vol-0 {}
-.button-set-vol-25 {}
-.button-set-vol-50 {}
-.button-set-vol-75 {}
-.button-set-vol-100 {}

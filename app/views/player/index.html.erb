@@ -13,41 +13,15 @@
   </audio>
 
   <div id="audio-controls">
-    <button id="play-button" onclick="playAudio()" type="button">Play</button>
+    <button id="play-button" type="button">Play</button>
 
     <spen class="volume-controls">
-      <button class="button-set-vol button-set-vol-0" onclick="setVolume(0)" type="button">0</button>
-      <button class="button-set-vol button-set-vol-25" onclick="setVolume(0.25)" type="button">25</button>
-      <button class="button-set-vol button-set-vol-50" onclick="setVolume(0.5)" type="button">50</button>
-      <button class="button-set-vol button-set-vol-75" onclick="setVolume(0.75)" type="button">75</button>
-      <button class="button-set-vol button-set-vol-100" onclick="setVolume(1)" type="button">100</button>
+      <button id="button-set-vol-0" class="button-set-vol" type="button">0</button>
+      <button id="button-set-vol-25" class="button-set-vol" type="button">25</button>
+      <button id="button-set-vol-50" class="button-set-vol" type="button">50</button>
+      <button id="button-set-vol-75" class="button-set-vol" type="button">75</button>
+      <button id="button-set-vol-100" class="button-set-vol" type="button">100</button>
     </spen>
 
   </div>
-
-  <div id="nowplaying"></div>
 </div>
-
-<script>
-var stream = document.getElementById('bassdrive-stream');
-var audioControls = document.getElementById('audio-controls')
-var playButton = document.getElementById('play-button');
-
-function playAudio() {
-  if (stream.paused) {
-    stream.play();
-    playButton.innerHTML = 'Playing!';
-  } else {
-    stream.pause();
-    playButton.innerHTML = 'Paused';
-  }
-}
-
-function setVolume(volume) {
-  stream.volume = volume;
-  audioControls.className = "volume-" + volume*100;
-}
-
-setVolume(1);
-
-</script>
