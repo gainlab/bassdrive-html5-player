@@ -1,11 +1,16 @@
-<h1>BASSDRIVE HTML5 Player</h1>
-<p>Experimental build</p>
+<div class="ajax-content">
+  <img src="http://bassdrive.com/images/logo.png">
 
-<audio controls>
-<% @relays.each do |relay| %>
-	<source src="<%= relay['streamURL'].html_safe %>" type="<%= content_type_for_relay(relay)%>" />
-<% end %>
-	<em>Sorry, your browser doesn't support HTML5 audio.</em>
-</audio>
+  <%#= svg_image_file('bassdrive-logo.svg').html_safe %>
+  <h3 class="player-title h4">Now Playing</h3>
+  <p class="player-desc js-playing-now">The Prague Connection December 12th 2016 <span class="player-host">-  hosted by Blofeld</span></p>
 
-<div id="nowplaying"></div>
+  <audio controls>
+  <% @relays.each do |relay| %>
+    <source src="<%= relay['streamURL'].html_safe %>" type="<%= content_type_for_relay(relay)%>" />
+  <% end %>
+    <em>Sorry, your browser doesn't support HTML5 audio.</em>
+  </audio>
+
+  <div id="nowplaying"></div>
+</div>
