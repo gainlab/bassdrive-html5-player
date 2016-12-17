@@ -1,0 +1,75 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+#bassdrive-stream {
+  display:none;
+}
+
+$blue: #8BD2F4;
+$grey: #676767;
+
+#play-button {
+  background: white;
+  border: none;
+}
+
+.button-set-vol {
+  background: $blue;
+  width: 2px;
+  text-indent: -999px;
+  overflow: hidden;
+  border: none;
+  padding: 2px;
+  margin: 0;
+}
+
+#audio-controls {
+
+  margin-top: 10px;
+
+  &.volume-0 {
+    .button-set-vol {
+      background: $grey;
+    }
+  }
+
+  &.volume-25 {
+    .button-set-vol-50,
+    .button-set-vol-75,
+    .button-set-vol-100 {
+      background: $grey;
+    }
+  }
+
+  &.volume-50 {
+    .button-set-vol-75,
+    .button-set-vol-100 {
+      background: $grey;
+    }
+  }
+
+  &.volume-75 {
+    .button-set-vol-100 {
+      background: $grey;
+    }
+  }
+}
+
+.button-set-vol-0 {}
+.button-set-vol-25 {}
+.button-set-vol-50 {}
+.button-set-vol-75 {}
+.button-set-vol-100 {}
