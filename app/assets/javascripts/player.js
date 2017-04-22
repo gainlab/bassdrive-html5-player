@@ -8,6 +8,13 @@ $(document).ready(function() {
   var buttonSetVol75  = document.getElementById('button-set-vol-75');
   var buttonSetVol100 = document.getElementById('button-set-vol-100');
 
+  $('body').addClass('JSEnabled');
+
+  var isBassdriveDotCom = (!!window.location.hostname.match(/bassdrive.com/));
+  var endpoint = isBassdriveDotCom ? '/relays.js' : '/nowplaying';
+  var parseNowPlaying = isBassdriveDotCom ? function(data) { return data.nowplaying[0].name; } : function(data) { return data.nowplaying; };
+  var $playingNow = $('.js-playing-now');
+
   function playAudio() {
     if (stream.paused) {
       stream.play();
@@ -34,25 +41,15 @@ $(document).ready(function() {
     buttonSetVol100.addEventListener('click', function() { setVolume(1); });
   }
 
-  attachEvents();
-  setVolume(1);
-
   function setNowplaying() {
-    // Polyfill
-    console.log = console.log || function() {};
-
-    try {
-      $.getJSON('/nowplaying', function(data) {
-        console.log('Updated nowplaying: %s', data.current_track);
-        $('.js-playing-now').html(data.current_track);
-      });
-    }
-    // in case the browser does not have a console available.
-    catch (e) {
-      console.log(e);
-    }
+    $.getJSON(endpoint, function(json) {
+      $playingNow.html(parseNowPlaying(json));
+      $('.player-title').show();
+    })
   }
 
+  attachEvents();
+  setVolume(1);
   setNowplaying();
   setInterval(setNowplaying, 60000);
 });

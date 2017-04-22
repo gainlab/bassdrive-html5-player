@@ -3,13 +3,14 @@
 <head>
   <title>Bassdrive</title>
   <%= stylesheet_link_tag    '//bassdrive.com/css/style.css' %>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag    'player', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <%= yield %>
 
-<%= javascript_include_tag 'application'  %>
+<%= javascript_include_tag 'jquery'  %>
+<%= javascript_include_tag 'player'  %>
 </body>
 </html>
