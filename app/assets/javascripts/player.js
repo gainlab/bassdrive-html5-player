@@ -11,9 +11,11 @@ $(document).ready(function() {
   function playAudio() {
     if (stream.paused) {
       stream.play();
-      playButton.innerHTML = 'Playing!';
+      $(playButton).addClass('playing').removeClass('paused');
+      playButton.innerHTML = 'Playing';
     } else {
       stream.pause();
+      $(playButton).addClass('paused').removeClass('playing');
       playButton.innerHTML = 'Paused';
     }
   }
@@ -41,7 +43,6 @@ $(document).ready(function() {
 
     try {
       $.getJSON('/nowplaying', function(data) {
-
         console.log('Updated nowplaying: %s', data.current_track);
         $('.js-playing-now').html(data.current_track);
       });

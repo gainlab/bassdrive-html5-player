@@ -20,10 +20,19 @@
 
 $blue: #8BD2F4;
 $grey: #676767;
+$yellow: #FFD48F;
 
 #play-button {
   background: white;
   border: none;
+
+  &.playing {
+    background: $blue;
+  }
+
+  &.paused {
+    background: $yellow;
+  }
 }
 
 .button-set-vol {
