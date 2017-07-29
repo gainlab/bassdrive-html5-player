@@ -1,5 +1,24 @@
+$blue: #8BD2F4;
+$grey: #676767;
+$yellow: #FFD48F;
+$purple: #171524;
+$white: darken(#fff, 5%);
+$green: #65C109;
+
+$base-font-size: 14px;
+
 body {
-  min-width: 0 !important; // Fix main bassdrive.com stylesheet issue
+  min-height: 100vh;
+  min-width: initial;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: $base-font-size;
+  color: $white;
+  background: $purple image-url('dots.svg');
+  background-size: 4px 4px, 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 #bassdrive-stream {
@@ -8,24 +27,32 @@ body {
   }
 }
 
-.player-title {
-  display: none;
+.player-bassdrive-logo {
+  margin-bottom: 50px;
 }
 
-$blue: #8BD2F4;
-$grey: #676767;
-$yellow: #FFD48F;
+.player-desc {
+  width: 100%;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid $blue;
+}
 
 #play-button {
-  background: white;
+  background: $green;
   border: none;
+  border-radius: 8px;
+  padding: 0 10px;
+  margin-right: 10px;
 
   &.playing {
     background: $blue;
+    color: $purple;
   }
 
   &.paused {
     background: $yellow;
+    color: red;
   }
 }
 
@@ -41,9 +68,10 @@ $yellow: #FFD48F;
 
 #audio-controls {
   display: none;
+  font-size: 18px;
 
   .JSEnabled & {
-    display: block;
+    display: flex;
   }
 
   margin-top: 10px;
@@ -73,5 +101,58 @@ $yellow: #FFD48F;
     #button-set-vol-100 {
       background: $grey;
     }
+  }
+}
+
+
+svg {
+  max-width: 100%;
+}
+
+.illustration {
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+//  background: image-url('artists/intelligent-manners.jpg');
+  opacity: 0.1;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Override player-specific styling */
+
+.ajax-content {
+  max-width: none;
+  background: none;
+  position: relative;
+  z-index: 4;
+  padding: 0;
+  margin: 40px;
+}
+
+/* overrides */
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.player-title {
+  font-size: 12px;
+  margin-bottom: 1em;
+}
+
+/* Responsive set */
+
+@media screen and (min-width: 768px) {
+  .ajax-content {
+    max-width: 60%;
   }
 }
