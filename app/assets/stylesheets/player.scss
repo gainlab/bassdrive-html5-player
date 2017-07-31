@@ -40,14 +40,17 @@ body {
 
 #play-button {
   background: $green;
+  color: $purple;
   border: none;
   border-radius: 8px;
   padding: 0 10px;
   margin-right: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
 
   &.playing {
     background: $blue;
-    color: $purple;
   }
 
   &.paused {
